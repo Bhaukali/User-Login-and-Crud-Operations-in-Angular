@@ -1,0 +1,24 @@
+<!-- The app component template is the root component template of the application, 
+   it contains the main nav bar which is only displayed for authenticated users, 
+   a router-outlet directive for displaying the contents of each view based on the current route, 
+   and an alert component for displaying alert messages from anywhere in the application. -->
+
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+
+<br><br>
+<!-- main content container -->
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
